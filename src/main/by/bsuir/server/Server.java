@@ -1,5 +1,7 @@
 package main.by.bsuir.server;
 
+import main.by.bsuir.server.dao.exception.Controller;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,7 +26,8 @@ public class Server  extends Thread {
             try {
                 clientSocket = serverSocket.accept();
                 System.out.println("Client connected");
-
+                Controller controller = new Controller(clientSocket);
+                controller.start();
             } catch (IOException e){
                 e.printStackTrace();
             }

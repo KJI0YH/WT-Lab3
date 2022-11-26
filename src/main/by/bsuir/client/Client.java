@@ -1,5 +1,7 @@
 package main.by.bsuir.client;
 
+import main.by.bsuir.server.Server;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -15,7 +17,7 @@ public class Client extends Thread {
     public void run() {
         running = true;
         try {
-            Socket socket = new Socket(InetAddress.getLocalHost(), 80);
+            Socket socket = new Socket(InetAddress.getLocalHost(), Server.PORT);
             BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             socketWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 

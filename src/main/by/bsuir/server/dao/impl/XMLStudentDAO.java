@@ -14,4 +14,9 @@ public class XMLStudentDAO implements StudentDAO {
     public void deleteStudent(Student student) throws DAOException{
 
     }
+
+    @Override
+    public String viewStudents() throws DAOException{
+        return null;
+    }
 }

@@ -5,6 +5,6 @@ import main.by.bsuir.server.controller.command.Command;
 public class Quit implements Command {
     @Override
     public String execute(String request) {
-        return null;
+        return "Not implemented yet";
     }
 }
