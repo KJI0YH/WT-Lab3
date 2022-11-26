@@ -8,7 +8,8 @@ public class Client extends Thread {
     private boolean running;
     private PrintWriter socketWriter;
 
-    public Client() {}
+    public Client() {
+    }
 
     @Override
     public void run() {
@@ -35,7 +36,7 @@ public class Client extends Thread {
         return running;
     }
 
-    public PrintWriter getSocketWriter(){
+    public PrintWriter getSocketWriter() {
         return socketWriter;
     }
 }
