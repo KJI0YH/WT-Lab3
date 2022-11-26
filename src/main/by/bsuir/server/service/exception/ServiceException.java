@@ -1,4 +1,4 @@
-package main.by.bsuir.client.service.exception;
+package main.by.bsuir.server.service.exception;
 
 public class ServiceException extends Exception{
 

@@ -1,8 +1,8 @@
-package main.by.bsuir.client.dao.impl;
+package main.by.bsuir.server.dao.impl;
 
-import main.by.bsuir.client.bean.Student;
-import main.by.bsuir.client.dao.StudentDAO;
-import main.by.bsuir.client.dao.exception.DAOException;
+import main.by.bsuir.server.bean.Student;
+import main.by.bsuir.server.dao.StudentDAO;
+import main.by.bsuir.server.dao.exception.DAOException;
 
 public class XMLStudentDAO implements StudentDAO {
     @Override

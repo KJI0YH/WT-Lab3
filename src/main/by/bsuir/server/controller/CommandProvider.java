@@ -1,7 +1,7 @@
-package main.by.bsuir.client.controller;
+package main.by.bsuir.server.controller;
 
-import main.by.bsuir.client.controller.command.Command;
-import main.by.bsuir.client.controller.command.impl.*;
+import main.by.bsuir.server.controller.command.Command;
+import main.by.bsuir.server.controller.command.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;

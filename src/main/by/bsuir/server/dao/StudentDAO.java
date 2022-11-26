@@ -1,7 +1,7 @@
-package main.by.bsuir.client.dao;
+package main.by.bsuir.server.dao;
 
-import main.by.bsuir.client.bean.Student;
-import main.by.bsuir.client.dao.exception.DAOException;
+import main.by.bsuir.server.bean.Student;
+import main.by.bsuir.server.dao.exception.DAOException;
 
 public interface StudentDAO  {
     void addStudent(Student student) throws DAOException;

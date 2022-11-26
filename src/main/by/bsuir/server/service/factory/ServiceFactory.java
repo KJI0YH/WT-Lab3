@@ -1,9 +1,9 @@
-package main.by.bsuir.client.service.factory;
+package main.by.bsuir.server.service.factory;
 
-import main.by.bsuir.client.service.StudentService;
-import main.by.bsuir.client.service.UserService;
-import main.by.bsuir.client.service.impl.StudentServiceImlp;
-import main.by.bsuir.client.service.impl.UserServiceImlp;
+import main.by.bsuir.server.service.StudentService;
+import main.by.bsuir.server.service.UserService;
+import main.by.bsuir.server.service.impl.StudentServiceImlp;
+import main.by.bsuir.server.service.impl.UserServiceImlp;
 
 public final class ServiceFactory {
     private static final ServiceFactory instance = new ServiceFactory();

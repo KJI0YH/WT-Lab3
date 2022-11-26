@@ -1,6 +1,6 @@
-package main.by.bsuir.client.controller;
+package main.by.bsuir.server.controller;
 
-import main.by.bsuir.client.controller.command.Command;
+import main.by.bsuir.server.controller.command.Command;
 
 public class Controller {
     private final CommandProvider provider = new CommandProvider();

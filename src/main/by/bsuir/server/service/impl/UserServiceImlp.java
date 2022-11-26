@@ -1,11 +1,11 @@
-package main.by.bsuir.client.service.impl;
+package main.by.bsuir.server.service.impl;
 
-import main.by.bsuir.client.bean.User;
-import main.by.bsuir.client.dao.exception.DAOException;
-import main.by.bsuir.client.dao.factory.DAOFactory;
-import main.by.bsuir.client.dao.UserDAO;
-import main.by.bsuir.client.service.UserService;
-import main.by.bsuir.client.service.exception.ServiceException;
+import main.by.bsuir.server.bean.User;
+import main.by.bsuir.server.dao.exception.DAOException;
+import main.by.bsuir.server.dao.factory.DAOFactory;
+import main.by.bsuir.server.dao.UserDAO;
+import main.by.bsuir.server.service.UserService;
+import main.by.bsuir.server.service.exception.ServiceException;
 
 public class UserServiceImlp implements UserService {
 

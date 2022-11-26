@@ -1,7 +1,7 @@
-package main.by.bsuir.client.service;
+package main.by.bsuir.server.service;
 
-import main.by.bsuir.client.bean.Student;
-import main.by.bsuir.client.service.exception.ServiceException;
+import main.by.bsuir.server.bean.Student;
+import main.by.bsuir.server.service.exception.ServiceException;
 
 public interface StudentService {
     void addStudent(Student student) throws ServiceException;

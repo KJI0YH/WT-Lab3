@@ -1,7 +1,7 @@
-package main.by.bsuir.client.dao;
+package main.by.bsuir.server.dao;
 
-import main.by.bsuir.client.bean.User;
-import main.by.bsuir.client.dao.exception.DAOException;
+import main.by.bsuir.server.bean.User;
+import main.by.bsuir.server.dao.exception.DAOException;
 
 public interface UserDAO {
     void singIn (String login, String password) throws DAOException;

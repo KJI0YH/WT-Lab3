@@ -1,6 +1,6 @@
-package main.by.bsuir.client.controller.command.impl;
+package main.by.bsuir.server.controller.command.impl;
 
-import main.by.bsuir.client.controller.command.Command;
+import main.by.bsuir.server.controller.command.Command;
 
 public class WrongRequest implements Command {
     @Override

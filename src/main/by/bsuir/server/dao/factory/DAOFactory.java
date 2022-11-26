@@ -1,9 +1,9 @@
-package main.by.bsuir.client.dao.factory;
+package main.by.bsuir.server.dao.factory;
 
-import main.by.bsuir.client.dao.StudentDAO;
-import main.by.bsuir.client.dao.UserDAO;
-import main.by.bsuir.client.dao.impl.XMLStudentDAO;
-import main.by.bsuir.client.dao.impl.XMLUserDAO;
+import main.by.bsuir.server.dao.StudentDAO;
+import main.by.bsuir.server.dao.UserDAO;
+import main.by.bsuir.server.dao.impl.XMLStudentDAO;
+import main.by.bsuir.server.dao.impl.XMLUserDAO;
 
 public final class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();

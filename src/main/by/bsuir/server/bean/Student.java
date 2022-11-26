@@ -1,4 +1,4 @@
-package main.by.bsuir.client.bean;
+package main.by.bsuir.server.bean;
 
 public class Student {
 }

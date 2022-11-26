@@ -1,7 +1,7 @@
-package main.by.bsuir.client.service;
+package main.by.bsuir.server.service;
 
-import main.by.bsuir.client.bean.User;
-import main.by.bsuir.client.service.exception.ServiceException;
+import main.by.bsuir.server.bean.User;
+import main.by.bsuir.server.service.exception.ServiceException;
 
 public interface UserService {
     void auth (String login, String password) throws ServiceException;

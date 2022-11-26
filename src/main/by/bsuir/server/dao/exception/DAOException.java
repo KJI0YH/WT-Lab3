@@ -1,4 +1,4 @@
-package main.by.bsuir.client.dao.exception;
+package main.by.bsuir.server.dao.exception;
 
 public class DAOException extends Exception{
     public DAOException(){
