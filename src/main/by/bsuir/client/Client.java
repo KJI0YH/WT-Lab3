@@ -1,27 +1,41 @@
 package main.by.bsuir.client;
 
-import main.by.bsuir.client.controller.Controller;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class Client {
-    public static void main(String[] args){
-        try{
+public class Client extends Thread {
+    private boolean running;
+    private PrintWriter socketWriter;
+
+    public Client() {}
+
+    @Override
+    public void run() {
+        running = true;
+        try {
             Socket socket = new Socket(InetAddress.getLocalHost(), 80);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String request;
-            Controller controller = new Controller();
-            while ((request = reader.readLine()) != null){
-                String response = controller.executeTask(request);
+            BufferedReader socketReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            socketWriter = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+            ClientReader clientReader = new ClientReader(this);
+            clientReader.start();
+
+            String response;
+            while ((response = socketReader.readLine()) != null) {
                 System.out.println(response);
             }
-
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        running = false;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public PrintWriter getSocketWriter(){
+        return socketWriter;
     }
 }
