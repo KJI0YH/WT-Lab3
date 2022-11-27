@@ -6,8 +6,8 @@ import main.by.bsuir.server.dao.exception.DAOException;
 
 public class XMLUserDAO implements UserDAO {
     @Override
-    public void auth(String login, String password) throws DAOException {
-
+    public User auth(String login, String password) throws DAOException {
+        return null;
     }
 
     @Override
@@ -16,6 +16,6 @@ public class XMLUserDAO implements UserDAO {
     }
 
     @Override
-    public void quit() throws DAOException {
+    public void quit(User user) throws DAOException {
     }
 }

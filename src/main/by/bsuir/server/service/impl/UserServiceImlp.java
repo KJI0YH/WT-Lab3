@@ -6,9 +6,9 @@ import main.by.bsuir.server.dao.factory.DAOFactory;
 import main.by.bsuir.server.dao.UserDAO;
 import main.by.bsuir.server.service.UserService;
 import main.by.bsuir.server.service.exception.ServiceException;
+import main.by.bsuir.server.service.factory.ServiceFactory;
 
 public class UserServiceImlp implements UserService {
-
     @Override
     public void auth(String login, String password) throws ServiceException {
         // check parameters
@@ -21,33 +21,45 @@ public class UserServiceImlp implements UserService {
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDAO userDAO = daoFactory.getUserDAO();
 
-        try{
-            userDAO.auth(login, password);
-        } catch (DAOException e ){
+        try {
+            ServiceFactory service = ServiceFactory.getInstance();
+            User activeUser = service.getActiveUser();
+            if (activeUser != null)
+                throw new ServiceException("The previous session is not over");
+            activeUser = userDAO.auth(login, password);
+            service.setActiveUser(activeUser);
+        } catch (DAOException e) {
             throw new ServiceException();
         }
     }
 
     @Override
-    public void quit(String login) throws ServiceException{
-        if (login == null || login.equals(" "))
-            throw new ServiceException();
+    public void quit() throws ServiceException {
+        ServiceFactory service = ServiceFactory.getInstance();
         UserDAO userDAO = DAOFactory.getInstance().getUserDAO();
         try {
-            userDAO.quit();
-        } catch (DAOException e){
+            User activeUser = service.getActiveUser();
+            if (activeUser == null)
+                throw new ServiceException("The session was not started");
+            userDAO.quit(activeUser);
+            service.setActiveUser(null);
+        } catch (DAOException e) {
             throw new ServiceException();
         }
     }
 
     @Override
-    public void registration(User user) throws ServiceException{
-        //todo check rights
+    public void registration(User user) throws ServiceException {
+
+        ServiceFactory service = ServiceFactory.getInstance();
+        if (service.getActiveUser().getRights() != User.Rights.Root)
+            throw new ServiceException("Insufficient rights to create a user");
+
         UserDAO userDAO = DAOFactory.getInstance().getUserDAO();
         try {
             userDAO.createUser(user);
-        } catch (DAOException e){
-            throw new ServiceException();
+        } catch (DAOException e) {
+            throw new ServiceException("Can not create a user");
         }
     }
 }

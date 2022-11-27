@@ -3,12 +3,19 @@ package main.by.bsuir.server.bean;
 public class User {
     private final String login;
     private final String password;
-    public static enum Rights {Guest, Root, Manager}
-    private Rights rights;
+    public static enum Rights {Guest, Manager, Root}
+    private final Rights rights;
 
     public User(String login, String password){
         this.login = login;
         this.password = password;
+        rights = Rights.Guest;
+    }
+
+    public User(String login, String password, Rights rights){
+        this.login = login;
+        this.password = password;
+        this.rights = rights;
     }
 
     public String getLogin() {
@@ -17,5 +24,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public Rights getRights(){
+        return rights;
     }
 }

@@ -1,6 +1,6 @@
 package main.by.bsuir.server.controller.command.impl;
 
-import main.by.bsuir.server.dao.exception.Controller;
+import main.by.bsuir.server.controller.Controller;
 import main.by.bsuir.server.controller.command.Command;
 import main.by.bsuir.server.controller.exception.ControllerException;
 import main.by.bsuir.server.service.exception.ServiceException;
@@ -17,6 +17,6 @@ public class Auth implements Command {
         } catch (ServiceException e){
             throw new ControllerException("Incorrect login or password");
         }
-        return "Auth success";
+        return "AUTH success";
     }
 }

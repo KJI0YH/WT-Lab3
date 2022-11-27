@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class CommandProvider {
-    private enum CommandName {AUTH, QUIT, VIEW, ADD, DELETE, WRONG_REQUEST};
+    private enum CommandName {AUTH, QUIT, VIEW, ADD, DELETE,  REGISTER, WRONG_REQUEST};
     private final Map<CommandName, Command> repository = new HashMap<>();
 
     public CommandProvider(){
@@ -16,6 +16,7 @@ public final class CommandProvider {
         repository.put(CommandName.VIEW, new View());
         repository.put(CommandName.ADD, new Add());
         repository.put(CommandName.DELETE, new Delete());
+        repository.put(CommandName.REGISTER, new Register());
         repository.put(CommandName.WRONG_REQUEST, new WrongRequest());
     }
 

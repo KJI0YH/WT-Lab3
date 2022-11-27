@@ -1,4 +1,4 @@
-package main.by.bsuir.server.dao.exception;
+package main.by.bsuir.server.controller;
 
 import main.by.bsuir.server.controller.CommandProvider;
 import main.by.bsuir.server.controller.command.impl.Quit;

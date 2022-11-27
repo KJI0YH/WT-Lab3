@@ -1,6 +1,6 @@
 package main.by.bsuir.server;
 
-import main.by.bsuir.server.dao.exception.Controller;
+import main.by.bsuir.server.controller.Controller;
 
 import java.io.IOException;
 import java.net.ServerSocket;

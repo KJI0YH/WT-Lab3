@@ -1,7 +1,7 @@
 package main.by.bsuir.server.controller.command.impl;
 
 import main.by.bsuir.server.bean.Student;
-import main.by.bsuir.server.dao.exception.Controller;
+import main.by.bsuir.server.controller.Controller;
 import main.by.bsuir.server.controller.command.Command;
 import main.by.bsuir.server.controller.exception.ControllerException;
 import main.by.bsuir.server.service.exception.ServiceException;
@@ -18,6 +18,6 @@ public class Add implements Command {
         } catch (ServiceException e){
             throw new ControllerException("Can not add a student");
         }
-        return "Add success";
+        return "ADD student success";
     }
 }
