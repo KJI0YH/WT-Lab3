@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<class>
+            
+    
+    <student>
+                 
+        
+        
+        <firstname>Aliaksei</firstname>
+                        
+        
+        <lastname>Kryzhanouski</lastname>
+                    
+    
+    </student>
+            
+    
+    <student>
+                        
+        
+        <firstname>Pasha</firstname>
+                        
+        
+        <lastname>Bobryk</lastname>
+                    
+    
+    </student>
+            
+    
+    <student>
+                        
+        
+        <firstname>Andrei</firstname>
+                        
+        
+        <lastname>Shyliak</lastname>
+                    
+    
+    </student>
+            
+    
+    <student>
+                        
+        
+        <firstname>Artiom</firstname>
+                        
+        
+        <lastname>Drankevich</lastname>
+                    
+    
+    </student>
+        
+    
+
+</class>

@@ -79,6 +79,7 @@ public class XMLUserDAO implements UserDAO {
             eUser.appendChild(ePassword);
             eUser.appendChild(eRights);
             root.appendChild(eUser);
+            root.normalize();
 
             Transformer tr = TransformerFactory.newInstance().newTransformer();
             tr.setOutputProperty(OutputKeys.INDENT, "yes");

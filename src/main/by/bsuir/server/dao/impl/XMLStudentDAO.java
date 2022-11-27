@@ -37,6 +37,7 @@ public class XMLStudentDAO implements StudentDAO {
             eStudent.appendChild(eFirstName);
             eStudent.appendChild(eLastName);
             root.appendChild(eStudent);
+            root.normalize();
 
             Transformer tr = TransformerFactory.newInstance().newTransformer();
             tr.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -57,7 +58,6 @@ public class XMLStudentDAO implements StudentDAO {
             Element root = doc.getDocumentElement();
             NodeList nList = doc.getElementsByTagName("student");
 
-
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -66,6 +66,7 @@ public class XMLStudentDAO implements StudentDAO {
                     String eLastName = eElement.getElementsByTagName("lastname").item(0).getTextContent();
                     if (eFirstName.equals(student.getFirstName()) && eLastName.equals(student.getLastName())) {
                         root.removeChild(eElement);
+                        root.normalize();
                         find = true;
                         break;
                     }
@@ -85,8 +86,6 @@ public class XMLStudentDAO implements StudentDAO {
         } catch (Exception e) {
             throw new DAOException("Can not delete a student");
         }
-
-
     }
 
     @Override
