@@ -6,5 +6,5 @@ import main.by.bsuir.server.dao.exception.DAOException;
 public interface StudentDAO  {
     void addStudent(Student student) throws DAOException;
     void deleteStudent(Student student) throws DAOException;
-    String viewStudents() throws  DAOException;
+    StringBuilder viewStudents() throws  DAOException;
 }

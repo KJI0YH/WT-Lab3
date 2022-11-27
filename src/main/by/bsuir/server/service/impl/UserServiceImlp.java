@@ -13,9 +13,9 @@ public class UserServiceImlp implements UserService {
     public void auth(String login, String password) throws ServiceException {
         // check parameters
         if (login == null || login.equals(" "))
-            throw new ServiceException();
-        if (password == null || password.length() < 8)
-            throw new ServiceException();
+            throw new ServiceException("Incorrect login");
+        if (password == null || password.equals(" "))
+            throw new ServiceException("Incorrect password");
 
         // realize functionality user login in system
         DAOFactory daoFactory = DAOFactory.getInstance();
@@ -29,7 +29,7 @@ public class UserServiceImlp implements UserService {
             activeUser = userDAO.auth(login, password);
             service.setActiveUser(activeUser);
         } catch (DAOException e) {
-            throw new ServiceException();
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -44,7 +44,7 @@ public class UserServiceImlp implements UserService {
             userDAO.quit(activeUser);
             service.setActiveUser(null);
         } catch (DAOException e) {
-            throw new ServiceException();
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -52,14 +52,14 @@ public class UserServiceImlp implements UserService {
     public void registration(User user) throws ServiceException {
 
         ServiceFactory service = ServiceFactory.getInstance();
-        if (service.getActiveUser().getRights() != User.Rights.Root)
+        if (service.getActiveUser().getRights() != User.Rights.ROOT)
             throw new ServiceException("Insufficient rights to create a user");
 
         UserDAO userDAO = DAOFactory.getInstance().getUserDAO();
         try {
             userDAO.createUser(user);
         } catch (DAOException e) {
-            throw new ServiceException("Can not create a user");
+            throw new ServiceException(e.getMessage());
         }
     }
 }

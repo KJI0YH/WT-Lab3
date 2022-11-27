@@ -18,7 +18,7 @@ public class Register implements Command {
             User.Rights rights = User.Rights.valueOf(arguments[3].toUpperCase());
             ServiceFactory.getInstance().getUserService().registration(new User(arguments[1], arguments[2], rights));
         } catch (ServiceException e) {
-            throw new ControllerException("Incorrect login or password");
+            throw new ControllerException(e.getMessage());
         } catch (IllegalArgumentException | NullPointerException e) {
             throw new ControllerException("Incorrect rights value");
         }

@@ -12,7 +12,7 @@ public class Quit implements Command {
         try{
             ServiceFactory.getInstance().getUserService().quit();
         } catch (ServiceException e){
-            throw new ControllerException("Can not quit");
+            throw new ControllerException(e.getMessage());
         }
         return "QUIT success";
     }

@@ -33,6 +33,7 @@ public class Controller extends Thread {
                 Available commands:
                 AUTH login password
                 QUIT
+                REGISTER login password rights
                 ADD firstname lastname
                 VIEW
                 DELETE firstname lastname
@@ -55,7 +56,7 @@ public class Controller extends Thread {
             try {
                 response = command.execute(request);
             } catch (ControllerException e) {
-                e.printStackTrace();
+                response = e.getMessage();
             }
             sendResponse(response);
 

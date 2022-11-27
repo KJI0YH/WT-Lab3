@@ -3,13 +3,13 @@ package main.by.bsuir.server.bean;
 public class User {
     private final String login;
     private final String password;
-    public static enum Rights {Guest, Manager, Root}
+    public static enum Rights {GUEST, MANAGER, ROOT}
     private final Rights rights;
 
     public User(String login, String password){
         this.login = login;
         this.password = password;
-        rights = Rights.Guest;
+        rights = Rights.GUEST;
     }
 
     public User(String login, String password, Rights rights){

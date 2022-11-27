@@ -12,7 +12,7 @@ public class View implements Command {
         try{
             response = ServiceFactory.getInstance().getStudentService().viewStudents();
         } catch (ServiceException e){
-            throw new ControllerException("Can not view students");
+            throw new ControllerException(e.getMessage());
         }
         return response;
     }

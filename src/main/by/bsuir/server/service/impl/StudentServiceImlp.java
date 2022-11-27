@@ -19,7 +19,7 @@ public class StudentServiceImlp implements StudentService {
         User activeUser = ServiceFactory.getInstance().getActiveUser();
         if (activeUser == null)
             throw new ServiceException("You are not AUTH");
-        if (activeUser.getRights() == User.Rights.Guest)
+        if (activeUser.getRights() == User.Rights.GUEST)
             throw new ServiceException("Not enough rights");
 
         if (student.getFirstName() == null ||  Objects.equals(student.getFirstName(), ""))
@@ -31,7 +31,7 @@ public class StudentServiceImlp implements StudentService {
         try{
             studentDAO.addStudent(student);
         } catch (DAOException e){
-            throw new ServiceException("Can not add student");
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -41,7 +41,7 @@ public class StudentServiceImlp implements StudentService {
         User activeUser = ServiceFactory.getInstance().getActiveUser();
         if (activeUser == null)
             throw new ServiceException("You are not AUTH");
-        if (activeUser.getRights() == User.Rights.Guest)
+        if (activeUser.getRights() == User.Rights.GUEST)
             throw new ServiceException("Not enough rights");
         if (student.getFirstName() == null ||  Objects.equals(student.getFirstName(), ""))
             throw new ServiceException("Student first name is empty");
@@ -52,7 +52,7 @@ public class StudentServiceImlp implements StudentService {
         try{
             studentDAO.deleteStudent(student);
         } catch (DAOException e){
-            throw new ServiceException("Can not delete student");
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -64,9 +64,9 @@ public class StudentServiceImlp implements StudentService {
         String view = null;
         StudentDAO studentDAO = DAOFactory.getInstance().getStudentDAO();
         try {
-            view = studentDAO.viewStudents();
+            view = String.valueOf(studentDAO.viewStudents());
         } catch (DAOException e){
-            throw new ServiceException("Can not view students");
+            throw new ServiceException(e.getMessage());
         }
         return view;
     }

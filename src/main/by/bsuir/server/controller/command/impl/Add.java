@@ -16,7 +16,7 @@ public class Add implements Command {
         try{
             ServiceFactory.getInstance().getStudentService().addStudent(new Student(arguments[1], arguments[2]));
         } catch (ServiceException e){
-            throw new ControllerException("Can not add a student");
+            throw new ControllerException(e.getMessage());
         }
         return "ADD student success";
     }

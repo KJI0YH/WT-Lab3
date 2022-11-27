@@ -15,7 +15,7 @@ public class Auth implements Command {
         try{
             ServiceFactory.getInstance().getUserService().auth(arguments[1], arguments[2]);
         } catch (ServiceException e){
-            throw new ControllerException("Incorrect login or password");
+            throw new ControllerException(e.getMessage());
         }
         return "AUTH success";
     }

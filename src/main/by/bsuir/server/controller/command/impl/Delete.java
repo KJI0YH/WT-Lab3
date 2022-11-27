@@ -16,7 +16,7 @@ public class Delete implements Command {
         try {
             ServiceFactory.getInstance().getStudentService().deleteStudent(new Student(arguments[1], arguments[2]));
         } catch (ServiceException e){
-            throw new ControllerException("Can not delete a student");
+            throw new ControllerException(e.getMessage());
         }
         return "DELETE student success";
     }
